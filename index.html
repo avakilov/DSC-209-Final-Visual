@@ -5,13 +5,11 @@
   <title>From Players to Teams: Performance Trends and Aging Patterns in Baseball History</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Main stylesheet (teammate UI) -->
+
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- D3 -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
-  <!-- Inline style for YOUR chart (kept so nothing breaks) -->
   <style>
     .chart-container {
       margin-top: 24px;
@@ -69,9 +67,11 @@
   <header id="page-header">
     <h1>From Players to Teams: Performance Trends and Aging Patterns in Baseball History</h1>
     <p>
-      This project explores how age, skill, and team structure shape performance in Major League Baseball.
-      We compare star hitters and pitchers across eras, analyze team age and success, and track long-term
-      league trends using interactive visualizations.
+      This project explores how MLB performance evolves with age — both at the player level
+      and the team level — and how those patterns have shifted across different eras.
+      We begin by comparing elite hitters and pitchers in four major baseball eras, then zoom out
+      to understand how a team's average age influences scoring and winning. Finally, we look at
+      long-term league trends to contextualize how the game has changed over time.
     </p>
   </header>
 
@@ -104,6 +104,14 @@
   </section>
 
 
+
+  <p class="transition-text" style="max-width: 900px; margin: 2rem auto; font-size: 1.05rem;">
+    After examining how hitters and pitchers age across different eras, we expand the scope to the
+    team level. The next visualization asks a bigger question: do older teams — with more experience
+    and veteran-heavy rosters — actually perform better over a full MLB season?
+  </p>
+
+
   <!-- ================= SECTION 2: TEAM AGE ================= -->
   <section id="team-section" class="panel-group">
     <div class="panel">
@@ -112,6 +120,8 @@
       <p>
         We examine how average team age relates to performance using
         <strong>runs per game</strong> and <strong>win percentage</strong> from 1970–2015.
+        Team age is weighted by plate appearances, so heavily-used players influence the age more
+        than bench players.
       </p>
 
       <div class="controls-bar" id="team-controls">
@@ -135,6 +145,34 @@
       <figure>
         <svg id="team-viz" width="1000" height="580"></svg>
       </figure>
+
+
+      <p class="transition-text" style="margin-top: 2rem;">
+        Looking at both offensive output and win rates reveals consistent patterns in how age influences
+        team performance.
+      </p>
+
+      <h3>What the results show</h3>
+
+      <p>
+        Across the full sample, team performance increases as average age rises into the late 20s.
+        Runs per game peak around <strong>age 32</strong>, suggesting that offensive production benefits
+        from experience but eventually declines with age. Win percentage follows the same arc:
+        the best teams tend to have roster ages between <strong>29–33</strong>, after which performance
+        steadily falls.
+      </p>
+
+      <p>
+        These patterns highlight a “sweet spot” where physical ability, experience, and consistency align.
+        Teams built around players in their late 20s to early 30s tend to perform the best overall.
+      </p>
+
+
+      <p class="closing-text" style="margin-top: 2rem; font-size: 1.05rem;">
+        Taken together, the team-level data reinforces the aging curves seen at the player level:
+        MLB performance peaks in the early 30s and then declines, both for individuals and for entire rosters.
+      </p>
+
     </div>
   </section>
 
@@ -144,6 +182,14 @@
     <div class="panel">
 
       <h2>League Performance Over Time</h2>
+
+      <p style="max-width: 850px;">
+        To place individual and team aging trends in context, this final visualization shows how league-wide
+        performance has shifted from 1960–2015. Users can explore trends in scoring, hitting, and strikeouts
+        across all teams or isolate a specific franchise. This view highlights long-term structural changes in
+        baseball — from offensive spikes to rising strikeout rates — that influence how age and performance
+        interact over time.
+      </p>
 
       <div class="controls-inline">
         <div>
@@ -179,27 +225,6 @@
         <svg id="linechart"></svg>
       </div>
 
-    </div>
-  </section>
-
-
-  <!-- ================= WRITE-UP ================= -->
-  <section id="writeup-section" class="panel-group">
-    <div class="panel">
-      <h2>Write-Up</h2>
-
-      <h3>What have we done so far?</h3>
-      <p>
-        We created three interactive D3 visualizations:
-        player performance by era, team age vs performance, and league trends over time.
-        The charts support exploration through filters, tooltips, and animations.
-      </p>
-
-      <h3>What will be most challenging?</h3>
-      <p>
-        Coordinating interactions across multiple datasets and keeping visual clarity
-        while supporting user exploration will be the most difficult challenge.
-      </p>
     </div>
   </section>
 
