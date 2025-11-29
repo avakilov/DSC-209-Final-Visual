@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>From Players to Teams: Performance Trends and Aging Patterns in Baseball History</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Teammate Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- D3 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Combined JS -->
+  <script defer src="main.js"></script>
+</head>
+
+<body>
+<div id="app">
+
+<!-- ===========================
+         PAGE HEADER
+============================ -->
+<header id="page-header">
+  <h1>From Players to Teams: Performance Trends and Aging Patterns in Baseball History</h1>
+  <p>
+    This project explores how age, skill, and team dynamics shape performance in Major League Baseball.
+    We examine star hitters and pitchers by era, analyze how team age affects success, and track league
+    performance trends over time using interactive visualizations.
+  </p>
+</header>
+
+<!-- ===========================
+     SECTION 1: PLAYER ERA VISUAL
+============================ -->
+<section id="player-section" class="panel-group">
+  <div class="panel">
+    <div class="controls-bar">
+      <div class="toggle-group">
+        <button id="view-hitters" class="toggle-btn active">Hitters</button>
+        <button id="view-pitchers" class="toggle-btn">Pitchers</button>
+      </div>
+      <div class="toggle-group era-group">
+        <button id="era-all" class="toggle-btn era-active">All</button>
+        <button id="era-expansion" class="toggle-btn">Expansion</button>
+        <button id="era-steroid" class="toggle-btn">Steroid</button>
+        <button id="era-modern" class="toggle-btn">Modern</button>
+      </div>
+    </div>
+
+    <h2 id="player-scatter-title"></h2>
+
+    <div id="player-scatter-layout">
+      <div id="player-scatter-container"></div>
+      <div id="player-scatter-legend"></div>
+      <p class="empty-msg" id="player-empty-msg" style="display:none;"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ===========================
+     SECTION 2: TEAM AGE VISUAL
+============================ -->
+<section id="team-section" class="panel-group">
+  <div class="panel">
+    <h2>Do Older Baseball Teams Perform Better?</h2>
+
+    <div class="controls-bar">
+      <div class="toggle-group">
+        <button id="btn-runs" class="toggle-btn active">Runs/Game</button>
+        <button id="btn-wins" class="toggle-btn">Win %</button>
+      </div>
+
+      <div class="toggle-group">
+        <label>Era:</label>
+        <select id="era-select">
+          <option value="all">All</option>
+          <option value="1970-1989">1970–1989</option>
+          <option value="1990-2009">1990–2009</option>
+          <option value="2010-2015">2010–2015</option>
+        </select>
+      </div>
+    </div>
+
+    <svg id="team-viz" width="1000" height="550"></svg>
+  </div>
+</section>
+
+<!-- ===========================
+    SECTION 3: LEAGUE PERFORMANCE
+============================ -->
+<section class="panel-group">
+  <div class="panel">
+    <h2>League Performance Over Time</h2>
+
+    <div class="controls-bar">
+      <label>League:</label>
+      <select id="leagueFilter">
+        <option value="All">All</option>
+        <option value="AL">AL</option>
+        <option value="NL">NL</option>
+      </select>
+
+      <label>Team:</label>
+      <select id="teamFilter">
+        <option value="All">All Teams</option>
+      </select>
+
+      <label>Metric:</label>
+      <label><input type="radio" name="metric" value="runs" checked> Runs/Game</label>
+      <label><input type="radio" name="metric" value="batting"> Hits/Game</label>
+      <label><input type="radio" name="metric" value="so"> Strikeouts/Game</label>
+    </div>
+
+    <div class="controls-bar">
+      <label>Year Range:</label>
+      <input type="range" id="lineYearMin">
+      <input type="range" id="lineYearMax">
+      <span id="lineYearLabel"></span>
+    </div>
+
+    <h3 id="lineChartTitle"></h3>
+    <svg id="linechart"></svg>
+  </div>
+</section>
+
+<!-- ===========================
+        WRITE-UP
+============================ -->
+<section class="panel-group">
+  <div class="panel">
+    <h2>Write-Up</h2>
+
+    <h3>What have we done so far?</h3>
+    <p>
+      We created three interactive visualizations using D3.js to analyze baseball performance from
+      both player and team perspectives. One visualization explores top hitters and pitchers across
+      eras, another shows how team age relates to performance, and a third tracks league metrics such
+      as scoring, hits, and strikeouts over time. These charts include filters, tooltips, and animations
+      so users can explore data dynamically.
+    </p>
+
+    <h3>What will be most challenging?</h3>
+    <p>
+      The biggest challenge is keeping interactions intuitive while combining multiple datasets and
+      perspectives. Coordinating filters across metrics, leagues, and years while keeping visuals
+      readable and responsive requires careful design. Another challenge is ensuring that performance
+      trends remain clear even with overlapping team and league lines.
+    </p>
+  </div>
+</section>
+
+</div>
+
+<!-- TOOLTIP DIVS -->
+<div id="tooltip"></div>
+<div id="team-tooltip"></div>
+
+</body>
+</html>
