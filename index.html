@@ -77,9 +77,8 @@
 
 
   <!-- ================= SECTION 1: PLAYER ERA ================= -->
-    <section id="player-section" class="panel-group">
+  <section id="player-section" class="panel-group">
     <div class="panel">
-
       <div class="controls-bar">
         <div class="toggle-group">
           <button id="view-hitters" class="toggle-btn active">Hitters</button>
@@ -99,17 +98,18 @@
       <div id="player-scatter-layout">
         <div id="player-scatter-container"></div>
         <div id="player-scatter-legend"></div>
-
-        <!-- NEW TRANSITION PARAGRAPH INSIDE CHART BUBBLE -->
-        <p>
-          After examining how hitters and pitchers age across different eras, we expand the scope to the
-          team level. The next visualization asks a bigger question: do older teams — with more experience
-          and veteran-heavy rosters — actually perform better over a full MLB season?
-        </p>
-
+        <p class="empty-msg" id="player-empty-msg" style="display:none;"></p>
       </div>
     </div>
+  <p class="transition-text" style="max-width: 900px; margin: 2rem auto; font-size: 1.05rem;">
+    After examining how hitters and pitchers age across different eras, we expand the scope to the
+    team level. The next visualization asks a bigger question: do older teams — with more experience
+    and veteran-heavy rosters — actually perform better over a full MLB season?
+  </p>
+
   </section>
+
+
 
 
   <!-- ================= SECTION 2: TEAM AGE ================= -->
