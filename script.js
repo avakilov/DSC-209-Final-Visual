@@ -195,7 +195,7 @@ function drawHitterScatter() {
 
   const x = d3.scaleLinear().domain([0.07, 0.35]).range([0, innerW]);
   const y = d3.scaleLinear().domain([0.00, 0.08]).range([innerH, 0]);
-  const rScale = d3.scaleSqrt().domain([0.4, 1.1]).range([10, 24]);
+  const rScale = d3.scaleSqrt().domain([0.4, 1.1]).range([8, 24]);
 
   g.append("g")
     .attr("transform", `translate(0,${innerH})`)
@@ -297,7 +297,7 @@ function drawPitcherScatter() {
 
   const x = d3.scaleLinear().domain([0.5, 9]).range([0, innerW]);
   const y = d3.scaleLinear().domain([6.3, 1.5]).range([innerH, 0]);
-  const rScale = d3.scaleSqrt().domain([1.7, 6.2]).range([24, 10]);
+  const rScale = d3.scaleSqrt().domain([1.7, 6.2]).range([24, 8]);
 
   g.append("g")
     .attr("transform", `translate(0,${innerH})`)
