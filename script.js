@@ -297,7 +297,7 @@ function drawPitcherScatter() {
 
   const x = d3.scaleLinear().domain([0.5, 9]).range([0, innerW]);
   const y = d3.scaleLinear().domain([6.3, 1.5]).range([innerH, 0]);
-  const rScale = d3.scaleSqrt().domain([1.7, 6.2]).range([28, 8]);
+  const rScale = d3.scaleSqrt().domain([1.7, 6.2]).range([32, 8]);
 
   g.append("g")
     .attr("transform", `translate(0,${innerH})`)
