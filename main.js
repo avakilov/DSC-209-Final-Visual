@@ -21,10 +21,9 @@ d3.csv("Teams.csv", d3.autoType).then(data => {
   fullData.forEach(d => {
     d.homeRunsPerGame = d.R / d.G;
     d.battingPerGame = d.H / d.G;      // hits per game as batting metric
-    // RA is runs allowed; if not present, you can change this to ER or similar
-    d.pitchingPerGame = d.RA ? d.RA / d.G : d.ER / d.G; 
-  });
-
+    // On-Base Percentage (OBP)
+  d.obpPerGame = (d.H + d.BB + d.HBP) / (d.AB + d.BB + d.HBP + d.SF);
+});
   // league list + color scale
   leaguesAll = Array.from(new Set(fullData.map(d => d.lgID))).sort();
   colorScale = d3.scaleOrdinal()
@@ -134,25 +133,25 @@ function setupLineSlider() {
 // ----------------------------------------------------
 function metricValue(d) {
   if (currentMetric === "batting") return d.battingPerGame;
-  if (currentMetric === "pitching") return d.pitchingPerGame;
+  if (currentMetric === "obp") return d.obpPerGame;
   return d.homeRunsPerGame; // default runs
 }
 
 function metricAxisLabel() {
   if (currentMetric === "batting") return "Avg Hits per Game";
-  if (currentMetric === "pitching") return "Avg Runs Allowed per Game";
+  if (currentMetric === "obp") return "Avg On-Base Percentage per Game";
   return "Avg Home Runs per Game";
 }
 
 function metricChartTitle() {
   if (currentMetric === "batting") return "League-Average Hits per Game by Year";
-  if (currentMetric === "pitching") return "League-Average Runs Allowed per Game by Year";
+  if (currentMetric === "obp") return "League-Average On-Base Percentage per Game by Year";
   return "League-Average Home Runs per Game by Year";
 }
 
 function metricTooltipLabel() {
   if (currentMetric === "batting") return "Hits/game";
-  if (currentMetric === "pitching") return "Runs allowed/game";
+  if (currentMetric === "obp") return "On-base %/game";
   return "HomeRuns/game";
 }
 
